@@ -1,0 +1,19 @@
+
+public interface ApiInterfaceFitness {
+
+    @GET("fitness/questions")
+    Call<ResponseGetQuestions> getQuestions(@HeaderMap Map<String, String> headers);
+
+    @POST("fitness/save/answer")
+    Call<ResponseSaveAnswer> getSaveAnswer(@HeaderMap Map<String, String> headers, @Query("optionId") int option_id);
+
+    @POST("fitness/save/metric")
+    Call<ResponseSaveAnswer> getSaveMetric(@HeaderMap Map<String, String> headers, @Body JsonObject body);
+   
+    @GET("fitness/workouts/byCategory")
+    Call<ResponseWorkoutByCategory> getWorkoutByCategory(@HeaderMap Map<String, String> headers,
+                                                         @Query("category") String category,
+                                                         @Query("pageNo") int pageNo,
+                                                         @Query("pageSize") int pageSize);
+
+ }
